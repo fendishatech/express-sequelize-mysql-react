@@ -1,0 +1,43 @@
+@BASE_URL = http://localhost:5000/api
+
+###
+GET {{BASE_URL}}/users HTTP/1.1
+Accept: "application/json"
+
+###
+GET {{BASE_URL}}/users/4 HTTP/1.1
+Accept: "application/json"
+
+###
+PATCH {{BASE_URL}}/users/4 HTTP/1.1
+Accept: "application/json"
+Content-Type: application/json
+
+ {
+    "first_name" : "Tim",
+    "email" : "snow@winterfell.com"
+ }
+
+###
+PUT {{BASE_URL}}/users/4 HTTP/1.1
+Accept: "application/json"
+Content-Type: application/json
+
+ {
+    "first_name" : "Tim",
+    "email" : "snow@winterfell.com"
+ }
+
+###
+PUT {{BASE_URL}}/users/change-password/4 HTTP/1.1
+Accept: "application/json"
+Content-Type: application/json
+
+ {
+    "currentPassword" : "nothing",
+    "newPassword" : "password"
+ }
+
+###
+DELETE  {{BASE_URL}}/users/2 HTTP/1.1
+Accept: "application/json"

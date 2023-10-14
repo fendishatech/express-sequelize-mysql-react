@@ -1,0 +1,33 @@
+@BASE_URL = http://localhost:5000/api
+
+# GET ALL
+###
+GET {{BASE_URL}}/tasks/ HTTP/1.1
+
+# GET ONE
+###
+GET {{BASE_URL}}/tasks/3 HTTP/1.1
+
+# POST (CREATE)
+###
+POST {{BASE_URL}}/tasks/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "todoId": 2,
+    "title": "My first task"
+}
+
+
+# patch (UPDATE)
+###
+PATCH {{BASE_URL}}/tasks/3 HTTP/1.1
+Content-Type: application/json
+
+{
+    "completed": true
+}
+
+# DELETE
+###
+DELETE {{BASE_URL}}/tasks/2 HTTP/1.1

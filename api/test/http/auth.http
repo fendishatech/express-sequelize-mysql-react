@@ -1,0 +1,29 @@
+@BASE_URL = http://localhost:5000/api
+
+###
+POST {{BASE_URL}}/register HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+ {
+    "first_name" : "John",
+      "last_name" : "Snow",
+      "email" : "winterfelldown@gmail.com",
+      "password" : "nothing",
+      "phone_no" : "0911121316"
+ }
+
+###
+POST {{BASE_URL}}/login HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+   "phone_no" : "0911121315",
+   "password" : "nothing"
+}
+
+###
+POST {{BASE_URL}}/logout HTTP/1.1
+Accept: "application/json"
+Content-Type: "application/json"
