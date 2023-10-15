@@ -39,7 +39,7 @@ const getAll = async (req, res) => {
     let offset = 0;
 
     if (!limit || isNaN(limit) || limit <= 0) {
-      limit = 3;
+      limit = 10;
     }
 
     const totalTodos = await Todo.count();
