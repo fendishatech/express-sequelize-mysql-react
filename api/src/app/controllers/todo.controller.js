@@ -78,7 +78,7 @@ const getAll = async (req, res) => {
     //   : null;
 
     return res.status(200).json({
-      data: todos,
+      todos,
       pagination: {
         currentPage,
         todosPerPage: limit,
