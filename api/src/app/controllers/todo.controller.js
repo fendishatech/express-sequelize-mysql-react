@@ -167,7 +167,20 @@ const getTodo = async (req, res) => {
         .json({ message: "Todo record could not be found." });
     }
 
-    return res.status(200).json(todo);
+    const totalTasks = await Task.count({ where: { todoId } });
+    // Fetch completed tasks for the given todo
+    const completedTasks = await Task.findAll({
+      where: {
+        todoId,
+        completed: true,
+      },
+    });
+    const progress =
+      completedTasks.length > 0
+        ? Math.floor((completedTasks.length / totalTasks) * 100)
+        : 0;
+
+    return res.status(200).json({ todo, progress, completedTasks, totalTasks });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "Internal server error" });

@@ -21,7 +21,7 @@ const router = createBrowserRouter([
         element: <NewTodo />,
       },
       {
-        path: "/update_todo",
+        path: "/update_todo/:id",
         element: <UpdateTodo />,
       },
       {

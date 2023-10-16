@@ -127,10 +127,38 @@ const deleteTask = async (req, res) => {
   }
 };
 
+const toggleComplete = async (req, res) => {
+  const taskId = req.params.id;
+
+  try {
+    const task = await Task.findByPk(taskId);
+
+    if (!task) {
+      return res.status(404).json({ message: "Task record not found" });
+    }
+
+    if (task.completed) {
+      await task.update({
+        completed: false,
+      });
+    } else {
+      await task.update({
+        completed: true,
+      });
+    }
+
+    return res.json({ message: "Task toggled successfully" });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Server error" });
+  }
+};
+
 module.exports = {
   getAll,
   getTask,
   createTask,
   updateTask,
   deleteTask,
+  toggleComplete,
 };
