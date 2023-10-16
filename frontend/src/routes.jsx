@@ -7,6 +7,8 @@ import TodoDetail from "./pages/todo/TodoDetail";
 import RegisterUser from "./pages/user/RegisterUser";
 import ChangePassword from "./pages/user/ChangePassword";
 import UpdateUser from "./pages/user/UpdateUser";
+import NewTask from "./pages/task/NewTask";
+import EditTask from "./pages/task/EditTask";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,19 @@ const router = createBrowserRouter([
       {
         path: "/detail/:id",
         element: <TodoDetail />,
+      },
+    ],
+  },
+  {
+    path: "/tasks",
+    children: [
+      {
+        path: "/tasks/new/:id",
+        element: <NewTask />,
+      },
+      {
+        path: "/tasks/edit/:id",
+        element: <EditTask />,
       },
     ],
   },
