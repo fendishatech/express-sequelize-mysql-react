@@ -100,7 +100,7 @@ const login = async (req, res) => {
     // You can also handle refresh tokens here if needed
     // const refreshToken = generateRefreshToken(user);
 
-    res.status(200).json({ message: "Login successful" });
+    res.status(200).json({ message: "Login successful", user });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error", error: error.message });

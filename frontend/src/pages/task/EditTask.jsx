@@ -20,7 +20,7 @@ const EditTask = () => {
 
     try {
       const res = await axiosClient.patch(`/tasks/${id}`, payload);
-      navigate("/");
+      navigate("/todos");
     } catch (error) {
       console.log(error.message);
     }

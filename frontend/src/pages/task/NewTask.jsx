@@ -17,7 +17,7 @@ const NewTask = () => {
 
     try {
       const res = await axiosClient.post("/tasks", payload);
-      navigate("/");
+      navigate("/todos");
     } catch (error) {
       console.log(error.message);
     }

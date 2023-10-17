@@ -18,7 +18,7 @@ const NewTodo = () => {
 
     try {
       const res = await axiosClient.post("/todos", payload);
-      navigate("/");
+      navigate("/todos");
     } catch (error) {
       console.log(error.message);
     }

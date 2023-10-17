@@ -72,7 +72,7 @@ const TodoDetail = () => {
               to={`/tasks/new/${todo.id}`}
               className="px-4 py-2 rounded-md text-white bg-green-600"
             >
-              Add New Todo
+              Add New Task
             </Link>
           </div>
           {todo?.tasks &&

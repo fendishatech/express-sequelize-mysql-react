@@ -4,10 +4,12 @@ import { FaRegEye } from "react-icons/fa";
 import { HiPencil } from "react-icons/hi";
 import { BsFillTrash3Fill } from "react-icons/bs";
 import axiosClient from "../../api/axiosClient";
+import { useStateContext } from "../../context/AuthContext";
 
 const Todos = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [todoToDeleteId, setTodoToDeleteId] = useState(null);
+  const { user } = useStateContext();
 
   const openModal = (id) => {
     setTodoToDeleteId(id);
@@ -48,10 +50,11 @@ const Todos = () => {
   });
   return (
     <div className="container mx-auto bg-gray-100 px-4  py-6">
+      <h1 className="text-4xl">Hello, {user.first_name}</h1>
       <div className="flex items-center justify-between">
         <h1 className="text-gray-700 text-2xl">Todo List</h1>
         <Link
-          to={"/new"}
+          to={"/todos/new"}
           className="px-4 py-2 rounded-md text-white bg-green-600"
         >
           Add New Todo
@@ -71,13 +74,13 @@ const Todos = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Link
-                  to={`/detail/${todo.id}`}
+                  to={`/todos/detail/${todo.id}`}
                   className="px-4 py-2 bg-green-400 rounded-[50px]"
                 >
                   <FaRegEye className="text-white" />
                 </Link>
                 <Link
-                  to={`/update_todo/${todo.id}`}
+                  to={`/todos/update_todo/${todo.id}`}
                   className="px-4 py-2 bg-orange-400 rounded-[50px]"
                 >
                   <HiPencil className="text-white text-[18px]" />

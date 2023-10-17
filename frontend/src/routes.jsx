@@ -9,25 +9,28 @@ import ChangePassword from "./pages/user/ChangePassword";
 import UpdateUser from "./pages/user/UpdateUser";
 import NewTask from "./pages/task/NewTask";
 import EditTask from "./pages/task/EditTask";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import UpdateProfile from "./pages/auth/UpdateProfile";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/todos",
     children: [
       {
-        path: "/",
+        path: "/todos",
         element: <Todos />,
       },
       {
-        path: "/new",
+        path: "/todos/new",
         element: <NewTodo />,
       },
       {
-        path: "/update_todo/:id",
+        path: "/todos/update_todo/:id",
         element: <UpdateTodo />,
       },
       {
-        path: "/detail/:id",
+        path: "/todos/detail/:id",
         element: <TodoDetail />,
       },
     ],
@@ -64,6 +67,15 @@ const router = createBrowserRouter([
         path: "/users/update_user",
         element: <UpdateUser />,
       },
+    ],
+  },
+  {
+    path: "/",
+    children: [
+      { path: "/", element: <Login /> },
+      { path: "/change_password", element: <ChangePassword /> },
+      { path: "/register", element: <Register /> },
+      { path: "/update_profile", element: <UpdateProfile /> },
     ],
   },
 ]);

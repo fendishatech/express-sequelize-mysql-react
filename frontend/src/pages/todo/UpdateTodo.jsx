@@ -22,7 +22,7 @@ const UpdateTodo = () => {
 
     try {
       const res = await axiosClient.patch(`/todos/${id}`, payload);
-      navigate("/");
+      navigate("/todos");
     } catch (error) {
       console.log(error.message);
     }
@@ -32,7 +32,7 @@ const UpdateTodo = () => {
     const getTodo = async () => {
       try {
         const res = await axiosClient.get(`/todos/${id}`);
-        setTodo(res.data);
+        setTodo(res.data.todo);
       } catch (error) {
         console.log(error.message);
       }
